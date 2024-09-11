@@ -4,14 +4,13 @@
 <template>
   <header class="py-4 border-b">
     <nav class="flex container items-center">
-      <a href="" class="flex gap-1 items-center">
+      <NuxtLink to="/" href="" class="flex gap-1 items-center">
         <img class="w-14" src="/icon-green.png" alt="" />
-        <span class="text-3xl font-bold">Nuxtcipes</span>
-      </a>
+        <span class="text-3xl font-bold">Nuxt Project</span>
+      </NuxtLink>
       <ul class="flex gap-6 ml-auto text-xl font-bold capitalize">
-        <li>
-          <a href="">Home</a>
-        </li>
+        <li> <NuxtLink to="/">Home</NuxtLink> </li>
+        <li> <NuxtLink to="/about">About</NuxtLink> </li>
       </ul>
     </nav>
   </header>
