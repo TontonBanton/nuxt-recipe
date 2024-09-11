@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-//define layout to be use on this page
-definePageMeta({
-  layout:'login'
-})
+//definePageMeta({   //define layout to be use on this page
+//  layout:'login'
+//})
+
 </script>
 
 <template>
