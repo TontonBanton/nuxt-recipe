@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./src/**/*.{vue,js,ts}"],
+  content: ["./index.html", "./src/**/*.{vue,js,ts}"],   //look for any HTML, Vue, JS, or TS files in the index.html and src directory.
   theme: {
     extend: {
       colors: {
