@@ -33,6 +33,10 @@ export default defineNuxtConfig({
     families: {
       Montserrat: true
     }
+  },
+
+  image: {
+    domains: ["https://cdn.dummyjson.com"]    //allows to transform images from this domain SEO
   }
 
 })
