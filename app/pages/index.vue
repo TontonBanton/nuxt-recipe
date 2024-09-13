@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { type RecipeResponse } from '../../types/types.js'
 
 //definePageMeta({   //define layout to be use on this page
 //  layout:'login'
@@ -8,7 +9,7 @@
 //const { data, error } = await useAsyncData('recipes', ()=> $fetch('https://dummyjson.com/recipes?limit=12'))
 
 //Fetch Composable Option:2 useFetch
-const { data, error } = await useFetch("https://dummyjson.com/recipes?limit=12")
+const { data, error } = await useFetch<RecipeResponse>("https://dummyjson.com/recipes?limit=12")
 
 </script>
 
@@ -34,7 +35,7 @@ const { data, error } = await useFetch("https://dummyjson.com/recipes?limit=12")
       <!--GRID Container-->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
         <!--Loop for every recipe card-->
-        <div v-for="recipe in data.recipes" class="flex flex-col shadow rounded-md">
+        <div v-for="recipe in data?.recipes" class="flex flex-col shadow rounded-md">
           <NuxtImg :src="recipe.image" sizes="xs:100vw sm:50vw lg:400px" format="webp" densities="x1" alt="" class="rounded-t-md" />
           <div class="flex flex-col py-6 px-4 flex-1">
           <p class="text-xl lg:text-2xl font-semibold mb-2">{{ recipe.name }}</p>
@@ -52,6 +53,10 @@ const { data, error } = await useFetch("https://dummyjson.com/recipes?limit=12")
                 <span>{{ recipe.rating }} ({{ recipe.reviewCount }})</span>
               </div>
             </div>
+            <NuxtLink :to="`/recipes/${recipe.id}`" class="px-4 py-2 text-white self-start bg-dodgeroll-gold rounded-md text-base lg:text-lg cursor-pointer"
+>
+              View
+            </NuxtLink>
          </div>
         </div>
       </div>
