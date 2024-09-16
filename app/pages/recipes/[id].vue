@@ -4,8 +4,9 @@ import { type Recipe } from "../../../types/types";
 const { id } = useRoute().params;
 const { data, error } = await useFetch<Recipe>(`https://dummyjson.com/recipes/${id}`);
 
+//Launch Error Page if true - passing the code and message
 if (error.value) {
-  throw createError({
+  throw createError({                             //Nuxt utility createError for error.vue
     statusCode: error.value?.statusCode,
     statusMessage: error.value?.statusMessage,
   });

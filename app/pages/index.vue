@@ -33,7 +33,7 @@ const { data, error } = await useFetch<RecipeResponse>("https://dummyjson.com/re
       <p class="text-lg lg:text-xl mb-8">Check out our most popular recipes!</p>
 
       <!--GRID Container-->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
+      <div v-if="!error" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8">
         <!--Loop for every recipe card-->
         <div v-for="recipe in data?.recipes" class="flex flex-col shadow rounded-md">
           <NuxtImg :src="recipe.image" sizes="xs:100vw sm:50vw lg:400px" format="webp" densities="x1" alt="" class="rounded-t-md" />
@@ -53,13 +53,13 @@ const { data, error } = await useFetch<RecipeResponse>("https://dummyjson.com/re
                 <span>{{ recipe.rating }} ({{ recipe.reviewCount }})</span>
               </div>
             </div>
-            <NuxtLink :to="`/recipes/${recipe.id}`" class="px-4 py-2 text-white self-start bg-dodgeroll-gold rounded-md text-base lg:text-lg cursor-pointer"
->
+            <NuxtLink :to="`/recipes/${recipe.id}`" class="px-4 py-2 text-white self-start bg-dodgeroll-gold rounded-md text-base lg:text-lg cursor-pointer">
               View
             </NuxtLink>
          </div>
         </div>
       </div>
+      <p v-else class="text-xl">Opps, something went wrong. Please try again later</p>
     </section>
   </main>
 </template>
