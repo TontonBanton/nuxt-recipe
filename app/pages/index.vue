@@ -1,15 +1,27 @@
 <script setup lang="ts">
 import { type RecipeResponse } from '../../types/types.js'
 
-//definePageMeta({   //define layout to be use on this page
-//  layout:'login'
-//})
+//Define layout to be use on this page
+definePageMeta({ layout:'default' })
 
 //Fetch Composable Option:1 useAssyncData
 //const { data, error } = await useAsyncData('recipes', ()=> $fetch('https://dummyjson.com/recipes?limit=12'))
 
 //Fetch Composable Option:2 useFetch
 const { data, error } = await useFetch<RecipeResponse>("https://dummyjson.com/recipes?limit=12")
+
+useSeoMeta({
+  title: "Nuxtcipes",
+  description: "Recipes for you to cook!",
+  ogTitle: "Nuxtcipes",
+  ogDescription: "Recipes for you to cook!",
+  ogImage: "/nuxt-course-hero.png",
+  ogUrl: `http:localhost:3000`,
+  twitterTitle: "Nuxtcipes",
+  twitterDescription: "Recipes for you to cook!",
+  twitterImage: "nuxt-course-hero.png",
+  twitterCard: "summary",
+});
 
 </script>
 
