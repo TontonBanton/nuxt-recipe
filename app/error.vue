@@ -1,9 +1,16 @@
 <script setup lang="ts">
 import type { NuxtError } from "#app";
 
+//TS Generic Syntax
+//defineProps<{
+//  error: NuxtError;
+//}>();
+
+//Casting Approach - use chaining ?. to avoid error for null/undefine
 const props = defineProps({
   error: Object as () => NuxtError,
-});
+})
+
 </script>
 
 <template>
